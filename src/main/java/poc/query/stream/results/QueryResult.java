@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 @Slf4j
 @Getter
-@JsonSerialize
 public class QueryResult {
     private static final Logger logger = LoggerFactory.getLogger(QueryResult.class);
     private final Map<String, Object> resultData;
@@ -26,7 +25,15 @@ public class QueryResult {
         this.resultData.put(columnName, value);
     }
 
-    
+    public String toJson() {
+        try {
+            return objectMapper.writeValueAsString(this.resultData);
+        } catch (JsonProcessingException e) {
+            logger.error("Error serializing QueryResult to JSON: {}", e.getMessage(), e);
+            return "{\"error\":\"serialization_failed\"}";
+        }
+    }
+
     @Override
     public String toString() {
         return "QueryResult{" +

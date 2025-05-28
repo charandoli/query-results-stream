@@ -19,7 +19,7 @@ public class QueryEngineServiceImpl implements QueryEngineService {
     @Override
     public CompletableFuture<Stream<QueryResult>> executeQuery(String query) {
         logger.info("Executing query: \"{}\"", query);
-        // fetching data
+        // Simulate fetching data from CData Query engine/ Connector
         return CompletableFuture.supplyAsync(() -> {
             List<QueryResult> results = new ArrayList<>();
             // process 5 rows of results
