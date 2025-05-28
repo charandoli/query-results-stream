@@ -1,2 +1,2 @@
 # query-results-stream
-A POC to implement Query results streaming for Query Federation platform
+A POC to implement Query results streaming for Query Federation platform ( CData Connect Cloud)
